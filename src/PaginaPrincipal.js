@@ -2,39 +2,16 @@
 import ContenedorSwapiCaracteres from "./Swappi/ContenedorSwapiCaracteres"
 import ContenedorSwapiVehiculos from "./Swappi/ContenedorSwapiVehiculos"
 import ContenedorSwapiPlanetas from "./Swappi/ContenedorSwapiPlanetas"
-import { useEffect, useState } from "react";
-import {UserProvider} from "./UserContext/UserContext";
+
+import {Caracteres} from "./Fetch/Caracteres"
+import {Planetas} from "./Fetch/Planetas"
+import {Vehiculos} from "./Fetch/Vehiculos"
 
 function PaginaPrincipal() {
-  const [caracteres, setCaracteres] = useState(null)
-  const [vehiculos, setVehiculos] = useState(null)
-  const [planetas, setPlanetas] = useState(null)
 
-  useEffect(() => { //ACA SE EJECUTA EL FETCH SOLO AL INICIO, OBTENIENDO ASI CARACTERES, VEHICULOS Y PLANETAS
-    getCaracteres();
-    getVehiculos();
-    getPlanetas();
-  }, [])
-
-  const getCaracteres = () => { //SE HACE FETCH A LOS CARACTERES
-    let url = "https://www.swapi.tech/api/people"
-    fetch(url)
-      .then(response => response.json())
-      .then(data => setCaracteres(data))
-
-  }
-  const getVehiculos = () => { //SE HACE FETCH A LOS VEHICULOS
-    let url = "https://www.swapi.tech/api/starships"
-    fetch(url)
-      .then(response => response.json())
-      .then(data => setVehiculos(data))
-  }
-  const getPlanetas = () => { //SE HACE FETCH A LOS PLANETAS
-    let url = "https://www.swapi.tech/api/planets"
-    fetch(url)
-      .then(response => response.json())
-      .then(data => setPlanetas(data))
-  }
+  const caracteres= Caracteres();
+  const vehiculos = Vehiculos();
+  const planetas = Planetas();
 
   return (
     <div >        

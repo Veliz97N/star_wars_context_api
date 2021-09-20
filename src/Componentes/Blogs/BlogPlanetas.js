@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import UserContext from "../../UserContext/UserContext"
 
 const BlogPlanetas = () => {

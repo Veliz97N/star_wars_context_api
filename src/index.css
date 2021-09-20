@@ -55,3 +55,20 @@ code {
 h1{
   color:#df5261;
 }
+.contenedor-Favoritos{
+  display: flex;
+}
+.favoritos{
+  margin-right: 10px;
+}
+.cantidad-favoritos{
+  padding-left: 5px;
+  padding-right: 5px;
+  background: black;
+}
+.contenedor-global-favoritos{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+

@@ -1,5 +1,4 @@
 import { UserProvider } from "../src/UserContext/UserContext"
-import { useEffect, useState } from "react";
 import PaginaPrincipal from "./PaginaPrincipal";
 import BlogCaracteres from "./Componentes/Blogs/BlogCaracteres"
 import BlogPlanetas from "./Componentes/Blogs/BlogPlanetas"
