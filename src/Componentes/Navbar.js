@@ -16,7 +16,7 @@ const Navbar = (props) => {
         <nav className="navbar navbar-expand-lg navbar-light bg-light mb-3">
             <div className="container">
                 <span className="navbar-brand">
-                <Link to="/" >Bienvenido {user.name}</Link>
+                <Link to="/" ><i class="fab fa-jedi-order fa-3x"></i></Link>
                 </span>
                 <Dropdown isOpen={isOpen} toggle={toggleIsOpen}>
                     <DropdownToggle>

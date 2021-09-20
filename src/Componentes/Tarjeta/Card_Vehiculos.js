@@ -29,7 +29,7 @@ const CardVehiculos = (props) => {
           }
           <div className="AddFavoritesLearnMore mt-5">
             <Link to="/planetas" onClick={()=>toggleInformacionElemento(vehiculos)} className="btn btn-outline-primary">Learn More!</Link>
-            <a href="#" onClick={()=>toggleFavoritosVehiculos(name)}  className="btn btn-outline-warning">{isFavorite?<i className="fas fa-heart"></i> :<i className="far fa-heart"></i>}</a>
+            <a  onClick={()=>toggleFavoritosVehiculos(name)}  className="btn btn-outline-warning">{isFavorite?<i className="fas fa-heart"></i> :<i className="far fa-heart"></i>}</a>
           </div>
         </div>
     )
