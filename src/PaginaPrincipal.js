@@ -1,4 +1,4 @@
-import Navbar from "./Componentes/Navbar"
+
 import ContenedorSwapiCaracteres from "./Swappi/ContenedorSwapiCaracteres"
 import ContenedorSwapiVehiculos from "./Swappi/ContenedorSwapiVehiculos"
 import ContenedorSwapiPlanetas from "./Swappi/ContenedorSwapiPlanetas"
@@ -37,13 +37,10 @@ function PaginaPrincipal() {
   }
 
   return (
-    <div className="App">
-      <UserProvider>
-        {<Navbar ></Navbar>}
+    <div >        
         {caracteres && <ContenedorSwapiCaracteres titulo={"Caracteres"} contenido={caracteres} />}
         {vehiculos && <ContenedorSwapiVehiculos titulo={"Vehiculos"} contenido={vehiculos} />}
         {planetas && <ContenedorSwapiPlanetas titulo={"Planetas"} contenido={planetas} />}
-      </UserProvider>
     </div>
   );
 }

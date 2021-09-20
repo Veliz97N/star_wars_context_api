@@ -1,9 +1,10 @@
 import React,{useEffect, useState, useContext} from 'react'
 import UserContext from "../../UserContext/UserContext"
+import { Link } from "react-router-dom";
 
 const CardPlanetas = (props) => {
   
-  const {user, toggleFavoritosPlanetas}= useContext(UserContext);
+  const {user, toggleFavoritosPlanetas,toggleInformacionElemento}= useContext(UserContext);
   const [planetas, setPlanetas] = useState(null)
   const name = props.name
   const url = props.url
@@ -27,7 +28,7 @@ const CardPlanetas = (props) => {
            </>
           }
           <div className="AddFavoritesLearnMore mt-5">
-            <a href="#" className="btn btn-outline-primary">Learn More!</a>
+            <Link to="/planetas" onClick={()=>toggleInformacionElemento(planetas)} className="btn btn-outline-primary">Learn More!</Link>
             <a href="#" onClick={()=>toggleFavoritosPlanetas(name)}  className="btn btn-outline-warning">{isFavorite?<i className="fas fa-heart"></i> :<i className="far fa-heart"></i>}</a>
           </div>
         </div>

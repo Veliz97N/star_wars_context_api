@@ -1,9 +1,10 @@
 import React,{useEffect, useState, useContext} from 'react'
 import UserContext from "../../UserContext/UserContext"
+import { Link } from "react-router-dom";
 
 const CardCaracteres = (props) => {
   
-  const {user, toggleFavoritosCaracteres}= useContext(UserContext);
+  const {user, toggleFavoritosCaracteres, toggleInformacionElemento}= useContext(UserContext);
 
   const [caracteristicas, setCaracteristicas] = useState(null)
   const name = props.name
@@ -16,6 +17,7 @@ const CardCaracteres = (props) => {
     .then(data=>setCaracteristicas(data.result.properties))
   },[])
 
+  
 
     return (
       <div className="card-body">
@@ -28,8 +30,8 @@ const CardCaracteres = (props) => {
            </>
           }
           <div className="AddFavoritesLearnMore mt-5">
-            <a href="/blog" className="btn btn-outline-primary">Learn More!</a>
-            <a href="#" onClick={()=>toggleFavoritosCaracteres(name)}  className="btn btn-outline-warning">{isFavorite?<i className="fas fa-heart"></i> :<i className="far fa-heart"></i>}</a>
+            <Link to="/caracteres" onClick={()=>toggleInformacionElemento(caracteristicas)} className="btn btn-outline-primary">Learn More!</Link>
+            <a  onClick={()=>toggleFavoritosCaracteres(name)}  className="btn btn-outline-warning">{isFavorite?<i className="fas fa-heart"></i> :<i className="far fa-heart"></i>}</a>
           </div>
       </div>
     )

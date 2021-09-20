@@ -1,7 +1,7 @@
 import React,{useContext, useState} from 'react'
 import UserContext from "../UserContext/UserContext"
 import { Dropdown,DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
-
+import { Link } from "react-router-dom";
 const Navbar = (props) => {
 
     const {user}= useContext(UserContext);
@@ -16,7 +16,7 @@ const Navbar = (props) => {
         <nav className="navbar navbar-expand-lg navbar-light bg-light mb-3">
             <div className="container">
                 <span className="navbar-brand">
-                    <h2>Bienvenido {user.name}</h2>
+                <Link to="/" >Bienvenido {user.name}</Link>
                 </span>
                 <Dropdown isOpen={isOpen} toggle={toggleIsOpen}>
                     <DropdownToggle>
@@ -41,6 +41,7 @@ const Navbar = (props) => {
                     </DropdownMenu>
                 </Dropdown>
             </div>
+
         </nav>
     )
 }

@@ -1,22 +1,30 @@
-
+import { UserProvider } from "../src/UserContext/UserContext"
 import { useEffect, useState } from "react";
 import PaginaPrincipal from "./PaginaPrincipal";
-import Blog from "./Componentes/Blogs/Blog"
-import {BrowserRouter,Route,Switch} from "react-router-dom"
+import BlogCaracteres from "./Componentes/Blogs/BlogCaracteres"
+import BlogPlanetas from "./Componentes/Blogs/BlogPlanetas"
+import BlogVehiculos from "./Componentes/Blogs/BlogVehiculos"
+import { BrowserRouter, Route, Switch } from "react-router-dom"
+import Navbar from "./Componentes/Navbar"
+
 function App() {
-  
+
 
   return (
+    <UserProvider>
+      <BrowserRouter>
+      {<Navbar ></Navbar>}
+        <Switch>
 
-    <BrowserRouter>
-      <Switch>
-        
-        <Route exact path="/" component={PaginaPrincipal} />
+          <Route exact path="/" component={PaginaPrincipal} />
 
-        <Route exact path="/blogsete" component={Blog} />
+          <Route exact path="/caracteres" component={BlogCaracteres} />
+          <Route exact path="/planetas" component={BlogPlanetas} />
+          <Route exact path="/vehiculos" component={BlogVehiculos} />
 
-      </Switch>
-    </BrowserRouter>
+        </Switch>
+      </BrowserRouter>
+    </UserProvider>
   );
 }
 
