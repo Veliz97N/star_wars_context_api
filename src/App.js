@@ -1,50 +1,22 @@
-import Navbar from "./Componentes/Navbar"
-import ContenedorSwapiCaracteres from "./Swappi/ContenedorSwapiCaracteres"
-import ContenedorSwapiVehiculos from "./Swappi/ContenedorSwapiVehiculos"
-import ContenedorSwapiPlanetas from "./Swappi/ContenedorSwapiPlanetas"
+
 import { useEffect, useState } from "react";
-import {UserProvider} from "./UserContext/UserContext";
-
+import PaginaPrincipal from "./PaginaPrincipal";
+import Blog from "./Componentes/Blogs/Blog"
+import {BrowserRouter,Route,Switch} from "react-router-dom"
 function App() {
-  const [caracteres, setCaracteres] = useState(null)
-  const [vehiculos, setVehiculos] = useState(null)
-  const [planetas, setPlanetas] = useState(null)
-
-  useEffect(() => { //ACA SE EJECUTA EL FETCH SOLO AL INICIO, OBTENIENDO ASI CARACTERES, VEHICULOS Y PLANETAS
-    getCaracteres();
-    getVehiculos();
-    getPlanetas();
-  }, [])
-
-  const getCaracteres = () => { //SE HACE FETCH A LOS CARACTERES
-    let url = "https://www.swapi.tech/api/people"
-    fetch(url)
-      .then(response => response.json())
-      .then(data => setCaracteres(data))
-
-  }
-  const getVehiculos = () => { //SE HACE FETCH A LOS VEHICULOS
-    let url = "https://www.swapi.tech/api/starships"
-    fetch(url)
-      .then(response => response.json())
-      .then(data => setVehiculos(data))
-  }
-  const getPlanetas = () => { //SE HACE FETCH A LOS PLANETAS
-    let url = "https://www.swapi.tech/api/planets"
-    fetch(url)
-      .then(response => response.json())
-      .then(data => setPlanetas(data))
-  }
+  
 
   return (
-    <div className="App">
-      <UserProvider>
-        {<Navbar ></Navbar>}
-        {caracteres && <ContenedorSwapiCaracteres titulo={"Caracteres"} contenido={caracteres} />}
-        {vehiculos && <ContenedorSwapiVehiculos titulo={"Vehiculos"} contenido={vehiculos} />}
-        {planetas && <ContenedorSwapiPlanetas titulo={"Planetas"} contenido={planetas} />}
-      </UserProvider>
-    </div>
+
+    <BrowserRouter>
+      <Switch>
+        
+        <Route exact path="/" component={PaginaPrincipal} />
+
+        <Route exact path="/blogsete" component={Blog} />
+
+      </Switch>
+    </BrowserRouter>
   );
 }
 

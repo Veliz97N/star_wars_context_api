@@ -41,7 +41,6 @@ const Navbar = (props) => {
                     </DropdownMenu>
                 </Dropdown>
             </div>
-
         </nav>
     )
 }
