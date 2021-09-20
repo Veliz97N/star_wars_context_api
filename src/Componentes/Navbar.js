@@ -18,8 +18,8 @@ const Navbar = (props) => {
                 <span className="navbar-brand">
                 <Link to="/" ><i className="fab fa-jedi-order fa-3x"></i></Link>
                 </span>
-                <Dropdown isOpen={isOpen} toggle={toggleIsOpen}>
-                    <DropdownToggle>
+                <Dropdown isOpen={isOpen} toggle={toggleIsOpen} direction="left">
+                    <DropdownToggle  className="boton_dropdown">
                         <div className="contenedor-Favoritos">
                             <div className="favoritos">
                                 Favoritos 
