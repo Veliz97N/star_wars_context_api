@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from "../Componentes/Tarjeta/Card_Vehiculos"
 
-const ContenedorSwapiCaracteres = (props) => {
+const ContenedorSwapiVehiculos = (props) => {
     const contenidos = props.contenido;
     return (
         <div className="container mb-2">
@@ -15,4 +15,4 @@ const ContenedorSwapiCaracteres = (props) => {
     )
 }
 
-export default ContenedorSwapiCaracteres
+export default ContenedorSwapiVehiculos;

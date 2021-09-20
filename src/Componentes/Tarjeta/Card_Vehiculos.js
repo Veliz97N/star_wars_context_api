@@ -1,11 +1,15 @@
-import React,{useEffect, useState} from 'react'
+import React,{useEffect, useState, useContext} from 'react'
+import UserContext from "../../UserContext/UserContext"
 
 const CardVehiculos = (props) => {
   
+  const {user, toggleFavoritosVehiculos}= useContext(UserContext);
+
   const [vehiculos, setVehiculos] = useState(null)
   const name = props.name
   const url = props.url
-  const [isFavorite,setFavorite]=useState(false)
+  const isFavorite = user.favoriteVehiculos.includes(name)
+
   useEffect(() =>{    
     fetch(url)
     .then(response=>response.json())
@@ -24,7 +28,7 @@ const CardVehiculos = (props) => {
           }
           <div className="AddFavoritesLearnMore mt-5">
             <a href="#" className="btn btn-outline-primary">Learn More!</a>
-            <a href="#" onClick={()=>setFavorite(!isFavorite)}  className="btn btn-outline-warning">{isFavorite?<i class="fas fa-heart"></i> :<i class="far fa-heart"></i>}</a>
+            <a href="#" onClick={()=>toggleFavoritosVehiculos(name)}  className="btn btn-outline-warning">{isFavorite?<i className="fas fa-heart"></i> :<i className="far fa-heart"></i>}</a>
           </div>
         </div>
     )

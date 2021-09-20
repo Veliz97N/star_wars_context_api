@@ -1,11 +1,14 @@
-import React,{useEffect, useState} from 'react'
+import React,{useEffect, useState, useContext} from 'react'
+import UserContext from "../../UserContext/UserContext"
 
-const CardCaracteres = (props) => {
+const CardPlanetas = (props) => {
   
+  const {user, toggleFavoritosPlanetas}= useContext(UserContext);
   const [planetas, setPlanetas] = useState(null)
   const name = props.name
   const url = props.url
-  const [isFavorite,setFavorite]=useState(false)
+  const isFavorite = user.favoritePlanetas.includes(name)
+
   useEffect(() =>{    
     fetch(url)
     .then(response=>response.json())
@@ -25,10 +28,10 @@ const CardCaracteres = (props) => {
           }
           <div className="AddFavoritesLearnMore mt-5">
             <a href="#" className="btn btn-outline-primary">Learn More!</a>
-            <a href="#" onClick={()=>setFavorite(!isFavorite)}  className="btn btn-outline-warning">{isFavorite?<i class="fas fa-heart"></i> :<i class="far fa-heart"></i>}</a>
+            <a href="#" onClick={()=>toggleFavoritosPlanetas(name)}  className="btn btn-outline-warning">{isFavorite?<i className="fas fa-heart"></i> :<i className="far fa-heart"></i>}</a>
           </div>
         </div>
     )
 }
 
-export default CardCaracteres
+export default CardPlanetas

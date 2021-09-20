@@ -9,7 +9,7 @@ const ContenedorSwapiCaracteres = (props) => {
                 <h1>{props.titulo}</h1>
             </div>
             <div className="tarjetas d-flex flex-row flex-nowrap overflow-auto">
-                {contenidos.results.map((resultado)=> <Card key={resultado.uid} name={resultado.name} url={resultado.url}/>)}
+                {contenidos.results.map((resultado)=> <Card key={resultado.uid} indice ={resultado.uid} name={resultado.name} url={resultado.url}/>)}
             </div>
         </div>
     )

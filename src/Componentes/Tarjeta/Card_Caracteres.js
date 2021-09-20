@@ -1,14 +1,14 @@
-import React,{useEffect, useState} from 'react'
+import React,{useEffect, useState, useContext} from 'react'
+import UserContext from "../../UserContext/UserContext"
 
 const CardCaracteres = (props) => {
   
+  const {user, toggleFavoritosCaracteres}= useContext(UserContext);
+
   const [caracteristicas, setCaracteristicas] = useState(null)
   const name = props.name
   const url = props.url
-
-  const [isFavorite,setFavorite]=useState(false)
-
-
+  const isFavorite = user.favoriteCaracteres.includes(name)
 
   useEffect(() =>{    
     fetch(url)
@@ -18,7 +18,7 @@ const CardCaracteres = (props) => {
 
 
     return (
-        <div className="card-body">
+      <div className="card-body">
           <h5 className="card-title">{name}</h5>
           { caracteristicas && 
             <>
@@ -29,7 +29,7 @@ const CardCaracteres = (props) => {
           }
           <div className="AddFavoritesLearnMore mt-5">
             <a href="#" className="btn btn-outline-primary">Learn More!</a>
-            <a href="#" onClick={()=>setFavorite(!isFavorite)}  className="btn btn-outline-warning">{isFavorite?<i class="fas fa-heart"></i> :<i class="far fa-heart"></i>}</a>
+            <a href="#" onClick={()=>toggleFavoritosCaracteres(name)}  className="btn btn-outline-warning">{isFavorite?<i className="fas fa-heart"></i> :<i className="far fa-heart"></i>}</a>
           </div>
       </div>
     )
