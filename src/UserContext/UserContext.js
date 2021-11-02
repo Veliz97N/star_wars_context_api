@@ -1,4 +1,9 @@
 import React, { createContext, useState } from 'react';
+import useLocalStorage from '../useLocalStorage';
+import {Caracteres} from "../Fetch/Caracteres"
+import {Planetas} from "../Fetch/Planetas"
+import {Vehiculos} from "../Fetch/Vehiculos"
+
 
 const UserContext = createContext();
 
@@ -42,7 +47,30 @@ const UserProvider = ({ children }) => {
     }
 
 
-    const data = { user, toggleFavoritosCaracteres, toggleFavoritosPlanetas, toggleFavoritosVehiculos, toggleInformacionElemento, informacionElemento }
+
+    
+    const [caracteresLocal, setCaracteresLocal] = useLocalStorage('caracteres',"")
+    const toggleSetCaracteresLocal = (parametro) =>{
+        setCaracteresLocal(parametro)
+    }
+    const caracteresFetch = Caracteres(toggleSetCaracteresLocal)
+
+    const [planetasLocal, setPlanetasLocal] = useLocalStorage('planetas',"")
+    const toggleSetPlanetasLocal = (parametro) =>{
+        setPlanetasLocal(parametro)
+    }
+    const planetasFetch = Planetas(toggleSetPlanetasLocal)
+
+
+    const [vehiculosLocal, setVehiculosLocal] = useLocalStorage('vehiculos',"")
+    const toggleSetVehiculosLocal = (parametro) =>{
+        setVehiculosLocal(parametro)
+    }
+    const vehiculosFetch = Vehiculos(toggleSetVehiculosLocal)
+
+
+
+    const data = { user, vehiculosLocal,planetasLocal,caracteresLocal,toggleSetCaracteresLocal,toggleFavoritosCaracteres, toggleFavoritosPlanetas, toggleFavoritosVehiculos, toggleInformacionElemento, informacionElemento }
 
     return (
         <UserContext.Provider value={data}>

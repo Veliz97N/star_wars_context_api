@@ -3,21 +3,19 @@ import ContenedorSwapiCaracteres from "./Swappi/ContenedorSwapiCaracteres"
 import ContenedorSwapiVehiculos from "./Swappi/ContenedorSwapiVehiculos"
 import ContenedorSwapiPlanetas from "./Swappi/ContenedorSwapiPlanetas"
 
-import {Caracteres} from "./Fetch/Caracteres"
-import {Planetas} from "./Fetch/Planetas"
-import {Vehiculos} from "./Fetch/Vehiculos"
+
+import UserContext from "./UserContext/UserContext"
+import { useContext } from "react/cjs/react.development"
 
 function PaginaPrincipal() {
-
-  const caracteres= Caracteres();
-  const vehiculos = Vehiculos();
-  const planetas = Planetas();
-
+  const {caracteresLocal,vehiculosLocal,planetasLocal}  = useContext(UserContext);
+  
+  
   return (
     <div >        
-        {caracteres && <ContenedorSwapiCaracteres titulo={"Caracteres"} contenido={caracteres} />}
-        {vehiculos && <ContenedorSwapiVehiculos titulo={"Vehiculos"} contenido={vehiculos} />}
-        {planetas && <ContenedorSwapiPlanetas titulo={"Planetas"} contenido={planetas} />}
+        {caracteresLocal && <ContenedorSwapiCaracteres titulo={"Caracteres"} contenido={caracteresLocal}/>}
+        { vehiculosLocal && <ContenedorSwapiVehiculos titulo={"Vehiculos"} contenido={vehiculosLocal} />}
+        {planetasLocal && <ContenedorSwapiPlanetas titulo={"Planetas"} contenido={planetasLocal} />} 
     </div>
   );
 }
