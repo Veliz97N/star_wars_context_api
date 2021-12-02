@@ -28,7 +28,8 @@ const CardPlanetas = (props) => {
            </>
           }
           <div className="AddFavoritesLearnMore mt-5">
-            <Link to="/planetas" onClick={()=>toggleInformacionElemento(planetas)} className="btn btn-outline-primary">Learn More!</Link>
+            {planetas  ?  <Link to="/planetas" onClick={()=>toggleInformacionElemento(planetas)} className="btn btn-outline-primary">Learn More!</Link> :<button className="btn btn-outline-primary"> Cargando Contenido </button>}
+            
             <a onClick={()=>toggleFavoritosPlanetas(name)}  className="btn btn-outline-warning">{isFavorite?<i className="fas fa-heart"></i> :<i className="far fa-heart"></i>}</a>
           </div>
         </div>

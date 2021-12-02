@@ -18,22 +18,22 @@ const BlogVehiculos = () => {
                 <table className="table text-danger">
                     <thead>
                         <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Birth</th>
-                            <th scope="col">Gender</th>
-                            <th scope="col">Height</th>
-                            <th scope="col">Skin Color</th>
-                            <th scope="col">Eye Color</th>
+                            <th scope="col">Model</th>
+                            <th scope="col">Clase</th>
+                            <th scope="col">Manufacturador</th>
+                            <th scope="col">Largo</th>
+                            <th scope="col">Costo</th>
+                            
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{informacionElemento.name}</td>
-                            <td>{informacionElemento.birth_year}</td>
-                            <td>{informacionElemento.gender}</td>
-                            <td>{informacionElemento.height}</td>
-                            <td>{informacionElemento.skin_color}</td>
-                            <td>{informacionElemento.eye_color}</td>
+                            <td>{informacionElemento.model}</td>
+                            <td>{informacionElemento.starship_class}</td>
+                            <td>{informacionElemento.manufacturer}</td>
+                            <td>{informacionElemento.length}</td>
+                            <td>{informacionElemento.cost_in_credits}</td>
+
                         </tr>
                     </tbody>
                 </table>

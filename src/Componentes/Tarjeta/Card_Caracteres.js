@@ -30,7 +30,8 @@ const CardCaracteres = (props) => {
            </>
           }
           <div className="AddFavoritesLearnMore mt-5">
-            <Link to="/caracteres" onClick={()=>toggleInformacionElemento(caracteristicas)} className="btn btn-outline-primary">Learn More!</Link>
+            {caracteristicas?  <Link to="/caracteres" onClick={()=>toggleInformacionElemento(caracteristicas)} className="btn btn-outline-primary">Learn More!</Link> : <button className="btn btn-outline-primary"> Cargando Contenido </button>}
+           
             <a  onClick={()=>toggleFavoritosCaracteres(name)}  className="btn btn-outline-warning">{isFavorite?<i className="fas fa-heart"></i> :<i className="far fa-heart"></i>}</a>
           </div>
       </div>

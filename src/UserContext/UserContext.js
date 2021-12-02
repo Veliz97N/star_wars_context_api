@@ -23,15 +23,16 @@ const UserProvider = ({ children }) => {
     const toggleFavoritosCaracteres = (caracterID) => {
         const isFavorite = user.favoriteCaracteres.includes(caracterID)
         const favoriteCaracteres = isFavorite
-            ? user.favoriteCaracteres.filter(favCar => favCar !== caracterID)
-            : [...user.favoriteCaracteres, caracterID]
+                                    ? user.favoriteCaracteres.filter(favCar => favCar !== caracterID)
+                                    : [...user.favoriteCaracteres, caracterID]
         setUser({ ...user, favoriteCaracteres })
     }
+    
     const toggleFavoritosPlanetas = (planetaID) => {
         const isFavorite = user.favoritePlanetas.includes(planetaID)
         const favoritePlanetas = isFavorite
-            ? user.favoritePlanetas.filter(favCar => favCar !== planetaID)
-            : [...user.favoritePlanetas, planetaID]
+                                ? user.favoritePlanetas.filter(favCar => favCar !== planetaID)
+                                : [...user.favoritePlanetas, planetaID]
         setUser({ ...user, favoritePlanetas })
     }
     const toggleFavoritosVehiculos = (vehiculoID) => {
